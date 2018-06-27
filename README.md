@@ -1,8 +1,7 @@
 # Aging
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/aging`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+It's a ruby gem for calculating age.  
+It provide a module, which refines Date class.
 
 ## Installation
 
@@ -22,7 +21,29 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+It adds `count_year` method to Date class.
+
+```
+class Person
+  using Aging
+
+  attr_accessor :birthday
+
+  def initialize(birthday)
+    @birthday = birthday
+  end
+
+  def age
+    birthday.count_year
+  end
+end
+
+require 'date'
+
+person = Person.new(Date.new(1994, 7, 7))
+puts person.age
+#=> 23 (now: 2018/06/27)
+```
 
 ## Development
 
